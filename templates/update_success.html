@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Location Updated - Bus Tracking System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+
+            background:
+                linear-gradient(rgba(5, 20, 35, 0.68),
+                rgba(5, 20, 35, 0.68)),
+                url("https://images.unsplash.com/photo-1524666041070-9d87656c25bb?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+        }
+
+        .success-box {
+            width: 430px;
+            padding: 45px;
+
+            background: rgba(255, 255, 255, 0.13);
+            backdrop-filter: blur(14px);
+
+            border-radius: 20px;
+
+            border: 1px solid rgba(255, 255, 255, 0.3);
+
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .back {
+            display: inline-block;
+
+            padding: 13px 25px;
+
+            background: white;
+            color: #222;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .back:hover {
+            transform: translateY(-2px);
+            background: #eeeeee;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="success-box">
+
+        <div class="icon">✅</div>
+
+        <h1>Location Updated Successfully!</h1>
+
+        <p>
+            The bus location has been updated successfully.
+        </p>
+
+        <a class="back" href="/">
+            ← Back to Home
+        </a>
+
+    </div>
+
+</body>
+
+</html>

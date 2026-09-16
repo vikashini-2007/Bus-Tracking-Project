@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Route - Bus Tracking System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+
+            background:
+                linear-gradient(rgba(20, 35, 55, 0.65),
+                rgba(20, 35, 55, 0.65)),
+                url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+        }
+
+        .route-box {
+            width: 420px;
+            padding: 40px;
+
+            background: rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(12px);
+
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+
+            margin-bottom: 7px;
+
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+
+            padding: 13px;
+
+            margin-bottom: 20px;
+
+            border: none;
+            border-radius: 8px;
+
+            outline: none;
+
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+
+            padding: 13px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: white;
+            color: #222;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            background: #eeeeee;
+        }
+
+        .back {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            color: white;
+            text-decoration: none;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="route-box">
+
+        <h1>🛣️ Add New Route</h1>
+
+        <p class="subtitle">
+            Create a route for the bus tracking system
+        </p>
+
+        <form method="POST">
+
+            <label>Source</label>
+
+            <input
+                type="text"
+                name="source"
+                placeholder="Enter starting point"
+                required
+            >
+
+            <label>Destination</label>
+
+            <input
+                type="text"
+                name="destination"
+                placeholder="Enter destination"
+                required
+            >
+
+            <button type="submit">
+                ➕ Add Route
+            </button>
+
+        </form>
+
+        <a class="back" href="/">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Bus - Bus Tracking System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+
+            background:
+                linear-gradient(rgba(25, 25, 25, 0.68),
+                rgba(25, 25, 25, 0.68)),
+                url("https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+        }
+
+        .bus-box {
+            width: 420px;
+            padding: 40px;
+
+            background: rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(12px);
+
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+
+            margin-bottom: 20px;
+
+            border: none;
+            border-radius: 8px;
+
+            outline: none;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: white;
+            color: #222;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            background: #eeeeee;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 25px;
+
+            color: white;
+            text-decoration: none;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bus-box">
+
+        <h1>🚌 Add New Bus</h1>
+
+        <p class="subtitle">
+            Register a bus in the tracking system
+        </p>
+
+        <form method="POST">
+
+            <label>Bus Number</label>
+
+            <input
+                type="text"
+                name="bus_number"
+                placeholder="Example: TN01AB1234"
+                required
+            >
+
+            <label>Driver Name</label>
+
+            <input
+                type="text"
+                name="driver_name"
+                placeholder="Enter driver name"
+                required
+            >
+
+            <label>Route ID</label>
+
+            <input
+                type="number"
+                name="route_id"
+                placeholder="Enter route ID"
+                required
+            >
+
+            <button type="submit">
+                ➕ Add Bus
+            </button>
+
+        </form>
+
+        <a class="back" href="/">
+            ← Back to Home
+        </a>
+
+    </div>
+
+</body>
+
+</html>

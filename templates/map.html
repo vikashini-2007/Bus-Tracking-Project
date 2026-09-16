@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Live Map - Bus Tracking System</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          crossorigin="" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+
+            background:
+                linear-gradient(rgba(5, 15, 30, 0.75),
+                rgba(5, 15, 30, 0.75)),
+                url("https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            color: white;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1100px;
+
+            margin: 40px auto;
+
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            margin-bottom: 25px;
+            opacity: 0.85;
+        }
+
+        .map-box {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+
+            padding: 20px;
+
+            border-radius: 20px;
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+        }
+
+        #map {
+            height: 550px;
+            width: 100%;
+
+            border-radius: 15px;
+        }
+
+        .back {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding: 12px 25px;
+
+            background: white;
+            color: #222;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .back:hover {
+            transform: translateY(-2px);
+            background: #eeeeee;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🗺️ Live Bus Map</h1>
+
+        <p class="subtitle">
+            Real-Time Public Transport Tracking
+        </p>
+
+        <div class="map-box">
+
+            <div id="map"></div>
+
+        </div>
+
+        <a class="back" href="/">
+            ← Back to Home
+        </a>
+
+    </div>
+
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            crossorigin=""></script>
+
+    <script>
+
+        // Create map
+        const map = L.map('map').setView([10.9601, 78.0766], 10);
+
+
+        // OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+            maxZoom: 19,
+
+            attribution: '&copy; OpenStreetMap contributors'
+
+        }).addTo(map);
+
+
+        // Get bus data from Flask
+        fetch('/api/buses')
+
+            .then(response => response.json())
+
+            .then(buses => {
+
+                if (buses.length === 0) {
+
+                    alert("No bus location available yet.");
+
+                    return;
+                }
+
+
+                const bounds = [];
+
+
+                // Add every bus to map
+                buses.forEach(bus => {
+
+                    const marker = L.marker([
+                        bus.latitude,
+                        bus.longitude
+                    ]).addTo(map);
+
+
+                    marker.bindPopup(`
+                        <b>🚌 ${bus.bus_number}</b>
+                        <br>
+                        Driver: ${bus.driver_name}
+                        <br>
+                        Latitude: ${bus.latitude}
+                        <br>
+                        Longitude: ${bus.longitude}
+                    `);
+
+
+                    bounds.push([
+                        bus.latitude,
+                        bus.longitude
+                    ]);
+
+                });
+
+
+                // Automatically zoom to buses
+                map.fitBounds(bounds, {
+                    padding: [30, 30]
+                });
+
+            })
+
+            .catch(error => {
+
+                console.error("Error loading bus data:", error);
+
+            });
+
+    </script>
+
+</body>
+
+</html>

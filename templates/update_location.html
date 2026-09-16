@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Update Location - Bus Tracking System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+
+            background:
+                linear-gradient(rgba(5, 20, 35, 0.68),
+                rgba(5, 20, 35, 0.68)),
+                url("https://images.unsplash.com/photo-1524666041070-9d87656c25bb?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+        }
+
+        .location-box {
+            width: 420px;
+            padding: 40px;
+
+            background: rgba(255, 255, 255, 0.13);
+            backdrop-filter: blur(14px);
+
+            border-radius: 20px;
+
+            border: 1px solid rgba(255, 255, 255, 0.3);
+
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            opacity: 0.85;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+
+            margin-bottom: 20px;
+
+            border: none;
+            border-radius: 8px;
+
+            outline: none;
+
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: white;
+            color: #222;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            background: #eeeeee;
+        }
+
+        .back {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            color: white;
+            text-decoration: none;
+
+            font-size: 15px;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+        .success {
+            margin-top: 20px;
+            padding: 12px;
+
+            background: rgba(0, 200, 100, 0.2);
+
+            border: 1px solid rgba(0, 255, 150, 0.4);
+
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="location-box">
+
+        <h1>📍 Update Bus Location</h1>
+
+        <p class="subtitle">
+            Update the current GPS location of the bus
+        </p>
+
+        <form method="POST">
+
+            <label>Bus Number</label>
+            <input type="text"
+                   name="bus_number"
+                   placeholder="Enter bus number"
+                   required>
+
+            <label>Latitude</label>
+            <input type="text"
+                   name="latitude"
+                   placeholder="Enter latitude"
+                   required>
+
+            <label>Longitude</label>
+            <input type="text"
+                   name="longitude"
+                   placeholder="Enter longitude"
+                   required>
+
+            <button type="submit">
+                📍 Update Location
+            </button>
+
+        </form>
+
+        <a class="back" href="/">
+            ← Back to Home
+        </a>
+
+    </div>
+
+</body>
+
+</html>

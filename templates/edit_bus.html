@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Bus</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+                        url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            width: 380px;
+            padding: 35px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 95%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #00c6ff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0072ff;
+        }
+
+        a {
+            display: block;
+            margin-top: 18px;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>🚌 Edit Bus</h1>
+
+    <form method="POST">
+
+        <input type="text"
+               value="{{ bus[0] }}"
+               readonly>
+
+        <input type="text"
+               name="driver_name"
+               value="{{ bus[1] }}"
+               placeholder="Driver Name"
+               required>
+
+        <input type="number"
+               name="route_id"
+               value="{{ bus[2] }}"
+               placeholder="Route ID"
+               required>
+
+        <button type="submit">✏️ Update Bus</button>
+
+    </form>
+
+    <a href="/buses">⬅ Back to Buses</a>
+
+</div>
+
+</body>
+</html>

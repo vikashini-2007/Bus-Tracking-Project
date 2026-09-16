@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - Bus Tracking System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+
+            background:
+                linear-gradient(rgba(15, 25, 45, 0.85),
+                rgba(15, 25, 45, 0.85)),
+                url("https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            color: white;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px 25px;
+        }
+
+        .header h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 17px;
+            opacity: 0.8;
+        }
+
+        .dashboard {
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.12);
+
+            backdrop-filter: blur(10px);
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            border-radius: 18px;
+
+            padding: 30px 20px;
+
+            text-align: center;
+
+            transition: 0.3s;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            opacity: 0.75;
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            display: inline-block;
+
+            text-decoration: none;
+
+            background: white;
+            color: #222;
+
+            padding: 10px 18px;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .card a:hover {
+            transform: scale(1.05);
+        }
+
+        .home {
+            text-align: center;
+            margin: 25px 0 40px;
+        }
+
+        .home a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .home a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+
+        <h1>📊 Bus Tracking Dashboard</h1>
+
+        <p>
+            Manage routes, buses and real-time locations
+        </p>
+
+    </div>
+
+
+    <div class="dashboard">
+
+        <div class="card">
+
+            <div class="icon">🛣️</div>
+
+            <h2>Add Route</h2>
+
+            <p>Create a new bus route.</p>
+
+            <a href="/add_route">Open</a>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🚌</div>
+
+            <h2>Add Bus</h2>
+
+            <p>Add a bus and driver details.</p>
+
+            <a href="/add_bus">Open</a>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">📋</div>
+
+            <h2>View Buses</h2>
+
+            <p>View available buses and locations.</p>
+
+            <a href="/buses">View</a>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">📍</div>
+
+            <h2>Update Location</h2>
+
+            <p>Update the current bus location.</p>
+
+            <a href="/update_location">Update</a>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🔎</div>
+
+            <h2>Search Bus</h2>
+
+            <p>Find a bus using its number.</p>
+
+            <a href="/search_bus">Search</a>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🗺️</div>
+
+            <h2>Live Map</h2>
+
+            <p>Track buses on the map.</p>
+
+            <a href="/map">Open Map</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="home">
+
+        <a href="/">← Back to Home</a>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register - Bus Tracking System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+
+            background:
+                linear-gradient(rgba(20, 50, 55, 0.65),
+                rgba(20, 50, 55, 0.65)),
+                url("https://images.unsplash.com/photo-1494522358652-f30e61a60313?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .register-box {
+            width: 400px;
+            padding: 40px;
+
+            background: rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(12px);
+
+            border-radius: 20px;
+
+            border: 1px solid rgba(255, 255, 255, 0.3);
+
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            margin-bottom: 28px;
+            opacity: 0.85;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+
+            margin-bottom: 18px;
+
+            border: none;
+            border-radius: 8px;
+
+            outline: none;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: white;
+            color: #222;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            background: #eeeeee;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 23px;
+
+            color: white;
+            text-decoration: none;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="register-box">
+
+        <h1>📝 Create Account</h1>
+
+        <p class="subtitle">
+            Register for Bus Tracking System
+        </p>
+
+        <form method="POST">
+
+            <label>Name</label>
+            <input type="text"
+                   name="name"
+                   placeholder="Enter your name"
+                   required>
+
+            <label>Email</label>
+            <input type="email"
+                   name="email"
+                   placeholder="Enter your email"
+                   required>
+
+            <label>Password</label>
+            <input type="password"
+                   name="password"
+                   placeholder="Create a password"
+                   required>
+
+            <button type="submit">
+                Register
+            </button>
+
+        </form>
+
+        <a class="back" href="/">
+            ← Back to Home
+        </a>
+
+    </div>
+
+</body>
+
+</html>

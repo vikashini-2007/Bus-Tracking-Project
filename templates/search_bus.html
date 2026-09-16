@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search Bus - Bus Tracking System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+
+            background:
+                linear-gradient(rgba(35, 30, 55, 0.72),
+                rgba(35, 30, 55, 0.72)),
+                url("https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px;
+        }
+
+        .search-box {
+            width: 480px;
+            padding: 40px;
+
+            background: rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(12px);
+
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+
+            margin-bottom: 20px;
+
+            border: none;
+            border-radius: 8px;
+
+            outline: none;
+
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: white;
+            color: #222;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            background: #eeeeee;
+        }
+
+        .result {
+            margin-top: 30px;
+
+            padding: 20px;
+
+            background: rgba(255, 255, 255, 0.12);
+
+            border-radius: 12px;
+
+            text-align: left;
+        }
+
+        .result h2 {
+            margin-bottom: 15px;
+        }
+
+        .result p {
+            margin: 10px 0;
+        }
+
+        .not-found {
+            margin-top: 25px;
+            padding: 15px;
+
+            background: rgba(255, 255, 255, 0.1);
+
+            border-radius: 10px;
+        }
+
+        .back {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            color: white;
+            text-decoration: none;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="search-box">
+
+        <h1>🔎 Search Bus</h1>
+
+        <p class="subtitle">
+            Find a bus using its bus number
+        </p>
+
+        <form method="POST">
+
+            <label>Bus Number</label>
+
+            <input
+                type="text"
+                name="bus_number"
+                placeholder="Example: TN01AB1234"
+                required
+            >
+
+            <button type="submit">
+                🔎 Search Bus
+            </button>
+
+        </form>
+
+
+        {% if bus %}
+
+        <div class="result">
+
+            <h2>🚌 Bus Found</h2>
+
+            <p>
+                <strong>Bus Number:</strong>
+                {{ bus[0] }}
+            </p>
+
+            <p>
+                <strong>Driver Name:</strong>
+                {{ bus[1] }}
+            </p>
+
+            <p>
+                <strong>Latitude:</strong>
+                {{ bus[2] if bus[2] else 'Not Updated' }}
+            </p>
+
+            <p>
+                <strong>Longitude:</strong>
+                {{ bus[3] if bus[3] else 'Not Updated' }}
+            </p>
+
+        </div>
+
+        {% elif request.method == 'POST' %}
+
+        <div class="not-found">
+            ❌ Bus not found. Please check the bus number.
+        </div>
+
+        {% endif %}
+
+
+        <a class="back" href="/">
+            ← Back to Home
+        </a>
+
+    </div>
+
+</body>
+
+</html>
