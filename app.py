@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, jsonify
+import os
 import pymysql
 
 app = Flask(__name__)
@@ -8,7 +9,7 @@ def connect_db():
     return pymysql.connect(
         host="localhost",
         user="root",
-        password="Vikashini@1989",
+        password=os.getenv("MYSQL_PASSWORD"),
         database="bus_tracking"
     )
 
